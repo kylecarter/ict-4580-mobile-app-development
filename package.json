@@ -2,9 +2,11 @@
   "name": "ict-4580-mobile-app-development",
   "version": "1.0.0",
   "description": "This is master course work for my University of Denver class ICT 4580 Mobile Application Development with Web Standards.",
-  "main": "app.js",
+  "main": "./index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "webpack": "webpack",
+    "dev:server": "nodemon --exec node ./index.js",
+    "dev": "concurrently --kill-others \"npm run dev:server\""
   },
   "engines": {
     "node": "8.10.0",
@@ -48,14 +50,14 @@
   "homepage": "https://github.com/kylecarter/ict-4580-mobile-app-development#readme",
   "dependencies": {
     "axios": "0.18.0",
+    "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
     "babel-loader": "7.1.4",
-    "babel-plugin-transform-class-properties": "6.24.1",
-    "babel-plugin-transform-runtime": "6.23.0",
     "babel-polyfill": "6.26.0",
     "babel-preset-env": "1.6.1",
     "babel-preset-react": "6.24.1",
     "babel-register": "6.26.0",
+    "bootstrap": "4.1.0",
     "client-sessions": "0.8.0",
     "cookie-parser": "1.4.3",
     "cors": "2.8.4",
@@ -63,26 +65,27 @@
     "express": "4.16.3",
     "http-proxy": "1.16.2",
     "jquery": "3.3.1",
-    "parallelshell": "3.0.2",
     "postcss-loader": "2.1.4",
     "react": "16.3.2",
     "react-dom": "16.3.2",
     "react-router-dom": "4.2.2",
     "sass-loader": "7.0.1",
+    "slugify": "1.2.9",
     "style-loader": "0.21.0",
-    "underscore": "1.9.0"
+    "underscore": "1.9.0",
+    "webpack": "4.6.0"
   },
   "devDependencies": {
     "animate-sass": "0.8.2",
     "autoprefixer": "8.3.0",
     "breakpoint-sass": "2.7.1",
+    "concurrently": "3.5.1",
     "cssnano": "3.10.0",
     "node-sass": "4.8.3",
     "nodemon": "1.17.3",
     "postcss": "6.0.21",
     "postcss-cli": "5.0.0",
     "uglifyjs-webpack-plugin": "1.2.5",
-    "webpack": "4.6.0",
     "webpack-cli": "2.0.14",
     "webpack-dev-middleware": "3.1.2",
     "webpack-hot-middleware": "2.22.1"
