@@ -128,6 +128,5 @@ STATICFILES_DIRS = [
 
 # Additional Installed Apps
 INSTALLED_APPS = [
-    # 'projects.apps.ProjectsConfig',
-    # 'api.apps.ApiConfig',
+    'api.apps.ApiConfig',
 ] + INSTALLED_APPS
