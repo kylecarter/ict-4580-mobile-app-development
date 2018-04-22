@@ -36,9 +36,37 @@ export default ( req, res )=> {
       page.title = 'ICT 4580 Mobile Application Development with Web Standards (online) | Spring 2018';
       page.classList = [ 'front' ];
       break;
+    case MATCH && MATCH.url && MATCH.url === '/blog':
+      page.title = 'Blog';
+      page.classList = [ 'blog', 'blog-list' ];
+      break;
+    case MATCH && MATCH.url && /blog\/post\/[0-9]+/.test( MATCH.url ):
+      page.title = 'Blog Post';
+      page.classList = [ 'blog', 'blog-post' ];
+      break;
+    case MATCH && MATCH.url && MATCH.url === '/dashboard':
+      page.title = 'Dashboard';
+      page.classList = [ 'dashboard' ];
+      break;
+    case MATCH && MATCH.url && /dashboard\/workout\/[0-9]+/.test( MATCH.url ):
+      page.title = 'Exercise Info';
+      page.classList = [ 'dashboard', 'workout' ];
+      break;
+    case MATCH && MATCH.url && /dashboard\/exercise\/[0-9]+/.test( MATCH.url ):
+      page.title = 'Exercise Info';
+      page.classList = [ 'dashboard', 'exercise' ];
+      break;
+    case MATCH && MATCH.url && MATCH.url === '/login':
+      page.title = 'Login';
+      page.classList = [ 'authentication', 'login' ];
+      break;
+    case MATCH && MATCH.url && MATCH.url === '/register':
+      page.title = 'Register';
+      page.classList = [ 'authentication', 'register' ];
+      break;
     default:
-      page.classList = [ 'four-oh-four' ];
       page.title = "Page Not Found";
+      page.classList = [ 'four-oh-four' ];
       break;
   }
 

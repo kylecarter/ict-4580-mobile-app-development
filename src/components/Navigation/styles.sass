@@ -1,0 +1,72 @@
+.navigation
+  background-color: $body-bg-alt
+  padding: 12px 0
+  color: $white
+
+  > .container
+    +clearfix
+
+  .js-toggle-nav
+    float: right
+    text-decoration: none
+    font-size: emify( 18px )
+
+  ul > li
+    margin-bottom: 0
+
+  .pad
+    display: inline-block
+    padding: 0 12px
+
+  a
+    color: inherit
+
+    &:hover, &:focus, &:active
+      border-bottom: 2px solid $primary
+      color: inherit
+
+    &.js-toggle-nav, &.btn
+
+      &:hover, &:focus, &:active
+        border-bottom: 0
+
+    &.btn-default
+      color: $body-color
+
+      &:hover, &:focus, &:active
+        color: $body-color
+
+  .nav
+    float: right
+
+    +breakpoint( max-width nth( $scale, 5 ) )
+      +position( fixed, -100% null null 0 )
+      transition: top 0.15s ease-in-out
+      background-color: $body-bg-alt
+      padding: 30px 16px 0
+      text-align: center
+      overflow: scroll
+      display: block
+      z-index: 10000
+      float: none
+      +size( 100% )
+
+      .btn
+        margin: 0 auto
+        display: block
+        max-width: 320px
+
+      .pad
+        padding: 15px 0
+
+  &.nav-open
+
+    .nav
+      top: 0
+
+    .js-toggle-nav
+      +position( relative, null null null null )
+      z-index: 10001
+
+      &:before
+        content: '\f00d'

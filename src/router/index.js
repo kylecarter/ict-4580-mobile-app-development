@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom'
 
 // Src > Views
-import { FourOhFour, Home } from '../views'
+import { Blog, Dashboard, FourOhFour, Home, Login, Register } from '../views'
 
 // Src > Components
 import Navigation from "../components/Navigation"
@@ -29,6 +29,13 @@ export default class Routes extends React.Component {
       <Navigation />
       <main className="react-app"><Switch>
         <Route path="/" exact render={ ()=> <Home { ...this.state } /> } />
+        <Route path="/blog" exact render={ ()=> <Blog.List { ...this.state } /> } />
+        <Route path="/blog/post/:id" exact render={ ()=> <Blog.Post { ...this.state } /> } />
+        <Route path="/dashboard" exact render={ ()=> <Dashboard.Workouts { ...this.state } /> } />
+        <Route path="/dashboard/workout/:id" exact render={ ()=> <Dashboard.Session { ...this.state } /> } />
+        <Route path="/dashboard/exercise/:id" exact render={ ()=> <Dashboard.Exercise { ...this.state } /> } />
+        <Route path="/login" exact render={ ()=> <Login { ...this.state } /> } />
+        <Route path="/register" exact render={ ()=> <Register { ...this.state } /> } />
         <Route render={ ()=> <FourOhFour { ...this.state } /> } />
       </Switch></main>
       <Footer/>
