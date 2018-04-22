@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 # Python
 import os
-import socket
 
 # Contrib
 import dj_database_url
@@ -81,9 +80,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 DATABASES = {}
-DATABASES['default'] = dj_database_url.config( default=os.environ.get( 'DATABASE_URL' ), conn_max_age=600 )
+DATABASES['default'] = dj_database_url.config(default=os.environ.get('DATABASE_URL'), conn_max_age=600)
 DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators

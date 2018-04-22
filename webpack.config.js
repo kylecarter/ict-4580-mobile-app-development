@@ -4,7 +4,12 @@ var path = require( 'path' );
 
 var config = {
     mode: process.env.NODE_ENV,
-    entry: './src/router/index.js',
+    output: {
+      publicPath: path.join( __dirname, 'backend/static' ),
+      path: path.join( __dirname, 'backend/static/js' ),
+      filename: 'components.js'
+    },
+
     module: {
         rules: [
             {

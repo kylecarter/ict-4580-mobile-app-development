@@ -8,8 +8,12 @@ import {
   Switch
 } from 'react-router-dom'
 
-// Source > Client > Views
+// Src > Views
 import { FourOhFour, Home } from '../views'
+
+// Src > Components
+import Navigation from "../components/Navigation"
+import Footer from "../components/Footer"
 
 const _ = underscore;
 
@@ -22,10 +26,12 @@ export default class Routes extends React.Component {
 
   render() {
     return (<div id="app">
-      <div className="react-app"><Switch>
+      <Navigation />
+      <main className="react-app"><Switch>
         <Route path="/" exact render={ ()=> <Home { ...this.state } /> } />
         <Route render={ ()=> <FourOhFour { ...this.state } /> } />
-      </Switch></div>
+      </Switch></main>
+      <Footer/>
     </div>);
   }
 }

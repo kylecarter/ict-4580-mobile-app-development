@@ -5,8 +5,14 @@
   "main": "./index.js",
   "scripts": {
     "webpack": "webpack",
-    "dev:server": "nodemon --exec node ./index.js",
-    "dev": "concurrently --kill-others \"npm run dev:server\""
+    "dev:server": "NODE_ENV=development node ./index.js",
+    "postinstall": "npm run sass && npm run postcss && npm run webpack",
+    "postcss": "postcss backend/static/css/main.css --verbose --env production --replace",
+    "dev": "npm run sass && concurrently --kill-others \"npm run watch:sass\" \"npm run dev:server\"",
+    "sass": "node-sass src/sass/stylesheet.sass -r --precision=8 --include-path=node_modules/ -o backend/static/css/",
+    "dev:backend": "env PYTHONPATH=$PYTHONPATH:$PWD/backend gunicorn backend.wsgi:application --bind $DJANGO_HOST:$DJANGO_PORT",
+    "watch:sass": "node-sass src/sass/stylesheet.sass --watch --recursive --precision=8 --include-path=node_modules/ -o backend/static/css/",
+    "start": "concurrently --kill-others \"env PYTHONPATH=$PYTHONPATH:$PWD/backend gunicorn backend.wsgi:application --bind $DJANGO_HOST:$DJANGO_PORT\" \"node --optimize_for_size --max_old_space_size=920 --gc_interval=100 --expose-gc ./index.js\""
   },
   "engines": {
     "node": "8.10.0",
@@ -78,6 +84,7 @@
   "devDependencies": {
     "animate-sass": "0.8.2",
     "autoprefixer": "8.3.0",
+    "bourbon": "5.0.0",
     "breakpoint-sass": "2.7.1",
     "concurrently": "3.5.1",
     "cssnano": "3.10.0",

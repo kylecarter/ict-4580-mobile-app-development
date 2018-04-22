@@ -24,7 +24,7 @@ import toArray from './src/server/to-array'
 const PORT = process.env.PORT || 3000;
 // const WEBPACK_PORT = process.env.WEBPACK_PORT || 3001;
 // const WEBPACK_HOST = process.env.WEBPACK_HOST || '127.0.0.1';
-const ASSETS = express.static( path.join( __dirname, '/dist/' ) );
+const ASSETS = express.static( path.join( __dirname, '/backend/static/' ) );
 const PROXY = httpProxy.createProxyServer({
   target: 'http://' + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT,
   ws: true
@@ -49,13 +49,15 @@ if ( process.env.NODE_ENV === 'development' ) {
     const COMPILER = webpack( webpackConfig );
 
     const SERVER_OPTIONS = {
-        publicPath: './dist',
+        writeToDisk: true,
         serverSideRender: true,
-        headers: { 'Access-Control-Allow-Origin': '*' },
         stats: { colors: true },
+        publicPath: webpackConfig.output.publicPath,
+        headers: { 'Access-Control-Allow-Origin': '*' },
     };
 
     APP.use( webpackDevMiddleware( COMPILER, SERVER_OPTIONS ) );
+    APP.use( webpackHotMiddleware( COMPILER ) );
 }
 
 // Proxy admin
@@ -93,8 +95,8 @@ APP.get( '*', ( req, res )=> {
 
     if ( process.env.NODE_ENV === 'development' ) {
         const assetsByChunkName = res.locals.webpackStats.toJson().assetsByChunkName;
-        css = toArray( assetsByChunkName.main ).filter( path => path.endsWith( '.css' ) ).map( path => `<link rel="stylesheet" href="${path}" />` ).join( '\n' );
-        js = toArray( assetsByChunkName.main ).filter( path => path.endsWith( '.js' ) ).map( path => `<script src="${path}"></script>` ).join( '\n' );
+        css = toArray( assetsByChunkName.main ).filter( path => path.endsWith( '.css' ) ).map( path => `<link rel="stylesheet" href="/css/${path}" />` ).join( '\n' );
+        js = toArray( assetsByChunkName.main ).filter( path => path.endsWith( '.js' ) ).map( path => `<script src="/js/${path}"></script>` ).join( '\n' );
     }
 
     return callback( req, res ).then( PAGE => {
@@ -109,6 +111,7 @@ APP.get( '*', ( req, res )=> {
               <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet" />
               <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossOrigin="anonymous" />
               ${css}
+              <link href="/css/stylesheet.css" rel="stylesheet" />
             </head>
             <body class="${ PAGE.classList.join( ' ' ) }">
               ${ PAGE.content }
