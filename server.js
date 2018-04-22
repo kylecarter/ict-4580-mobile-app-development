@@ -66,11 +66,6 @@ APP.use('/admin', ( req, res ) => {
   PROXY.web(req, res, {target: 'http://' + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT + '/admin'});
 });
 
-// Django Static Files
-APP.use('/static', ( req, res ) => {
-  PROXY.web(req, res, {target: 'http://' + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT + '/static'});
-});
-
 // Django APIs
 APP.use('/api', ( req, res ) => {
   PROXY.web(req, res, {target: 'http://' + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT + '/api/v1'});
