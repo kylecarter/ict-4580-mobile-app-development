@@ -27,7 +27,7 @@ export default class Navigation extends React.Component {
                 <li className="nav-item"><a href="/blog" className="nav-link" rel="bookmark">Blog</a></li>
                 <li className="nav-item"><a href="/dashboard" className="nav-link" rel="bookmark">Dashboard</a></li>
                 <li className="nav-item"><a href="/falsey" className="nav-link" rel="bookmark">Four Oh Four</a></li>
-                <li className="nav-item"><a href="/login" className="btn btn-default" rel="bookmark">Log In</a> <span className="pad">-or-</span> <a href="/signup" className="btn btn-primary" rel="bookmark">Sign Up</a></li>
+                <li className="nav-item"><a href="/login" className="btn btn-default" rel="bookmark">Log In</a> <span className="pad">-or-</span> <a href="/register" className="btn btn-primary" rel="bookmark">Sign Up</a></li>
             </ul>
         </div></nav>);
     }
