@@ -22,8 +22,6 @@ import webpackConfig from './webpack.config'
 import toArray from './src/server/to-array'
 
 const PORT = process.env.PORT || 3000;
-// const WEBPACK_PORT = process.env.WEBPACK_PORT || 3001;
-// const WEBPACK_HOST = process.env.WEBPACK_HOST || '127.0.0.1';
 const ASSETS = express.static( path.join( __dirname, '/backend/static/' ) );
 const PROXY = httpProxy.createProxyServer({
   target: 'http://' + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT,
