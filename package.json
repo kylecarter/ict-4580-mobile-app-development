@@ -8,7 +8,7 @@
     "dev:server": "NODE_ENV=development node ./index.js",
     "dev:collectstatic": "./backend/manage.py collectstatic",
     "postinstall": "npm run sass && npm run postcss && npm run webpack",
-    "postcss": "postcss backend/static/css/main.css --verbose --env production --replace",
+    "postcss": "postcss backend/static/css/stylesheet.css --verbose --env production --replace",
     "sass": "node-sass src/sass/stylesheet.sass -r --precision=8 --include-path=node_modules/ -o backend/static/css/",
     "dev:backend": "env PYt THONPATH=$PYTHONPATH:$PWD/backend gunicorn backend.wsgi:application --bind $DJANGO_HOST:$DJANGO_PORT",
     "dev": "npm run dev:collectstatic && npm run sass && concurrently --kill-others \"npm run watch:sass\" \"npm run dev:server\"",
