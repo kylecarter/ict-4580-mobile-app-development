@@ -97,6 +97,8 @@ APP.get( '*', ( req, res )=> {
         const assetsByChunkName = res.locals.webpackStats.toJson().assetsByChunkName;
         css = toArray( assetsByChunkName.main ).filter( path => path.endsWith( '.css' ) ).map( path => `<link rel="stylesheet" href="/css/${path}" />` ).join( '\n' );
         js = toArray( assetsByChunkName.main ).filter( path => path.endsWith( '.js' ) ).map( path => `<script src="/js/${path}"></script>` ).join( '\n' );
+    } else {
+        js = '<script src="/js/components.js"></script>';
     }
 
     return callback( req, res ).then( PAGE => {
