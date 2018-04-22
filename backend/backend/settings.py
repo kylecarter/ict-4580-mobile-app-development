@@ -10,7 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
+# Python
 import os
+
+# Contrib
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,12 +24,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '^k_e%m^m5t_(=3$1)bzlk6ofje^tc60ku$fexs$@76p*1y^k*7'
+SECRET_KEY = os.environ.get( 'SECRET_KEY' )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get( 'DEBUG' )
+LOCAL_DEV = os.environ.get( 'LOCAL_DEV' )
+TEMPLATE_DEBUG = os.environ.get( 'TEMPLATE_DEBUG' )
+JS_DEBUG = os.environ.get( 'JS_DEBUG' )
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get( 'ALLOWED_HOSTS', '' ).split() or [ HOSTNAME ]
 
 
 # Application definition
@@ -72,14 +79,9 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(default=os.environ.get('DATABASE_URL'), conn_max_age=600)
+DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -116,5 +118,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.0/howto/static-files/
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join( BASE_DIR, 'static' )
+STATICFILES_DIRS = [
+    # os.path.join( BASE_DIR, 'backend/static' ),
+]
+
+# Additional Installed Apps
+INSTALLED_APPS = [
+    'api.apps.ApiConfig',
+] + INSTALLED_APPS

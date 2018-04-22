@@ -1,0 +1,1 @@
+export default assets => Array.isArray(assets) ? assets : [ assets ]

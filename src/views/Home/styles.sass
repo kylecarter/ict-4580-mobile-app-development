@@ -1,0 +1,110 @@
+.front
+
+  .marquee
+    color: $white
+    padding: 32px 0
+    background:
+      size: cover
+      position: center
+      repeat: no-repeat
+      color: $body-bg-alt
+
+    +breakpoint( nth( $scale, 5 ) + 1 )
+      background-image: url( '/img/home-hero-bg.jpg' )
+      padding: 18% 0
+
+  .features
+    background-color: $body-bg-alt
+    padding-bottom: 32px
+    padding-top: 32px
+
+    .h5, h2
+      color: $white
+
+    h2
+      margin-bottom: 24px
+
+    .h5
+      margin-top: 16px
+      font-weight: 700
+      margin-bottom: 3px
+
+    p
+      color: $gray-500
+
+    .fa
+      font-size: emify( $typography-base * 4px )
+
+    .col-lg-4
+
+      &:first-child
+
+        .fa
+          color: $teal
+
+      &:nth-child( 2 )
+
+        .fa
+          color: $green
+
+      &:last-child
+
+        .fa
+          color: $cyan
+
+  .spotlight
+    padding: 42px 0
+
+    +breakpoint( nth( $scale, 5 ) + 1 )
+      padding: 5% 0
+
+    .fa
+      font-size: emify( $typography-base * 4px )
+
+    &-icon
+      align-self: center
+      text-align: center
+
+      +breakpoint( max-width nth( $scale, 5 ) )
+        margin-bottom: 30px
+
+    &.spotlight-1
+
+      .spotlight-icon
+
+        +breakpoint( nth( $scale, 5 ) + 1 )
+          order: 1
+
+      .fa
+        color: $teal
+
+    &.spotlight-2
+      background-color: $body-bg-alt
+      color: $white
+
+      p
+        color: $gray-500
+
+      .fa
+        color: $green
+
+    &.spotlight-3
+
+      .spotlight-icon
+
+        +breakpoint( nth( $scale, 5 ) + 1 )
+          order: 1
+
+      .fa
+          color: $cyan
+
+  .call-to-action
+    background-color: #1c1c1c
+    padding: 42px 0
+    color: $white
+
+    h2
+      margin-bottom: 32px
+
+    +breakpoint( nth( $scale, 5 ) + 1 )
+      padding: 5% 0
