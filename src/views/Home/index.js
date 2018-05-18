@@ -23,25 +23,25 @@ export default class Home extends React.Component {
             </div>
           </div>
           </header>
-          <section className="features">
+          <section className="features text-center">
             <div className="container">
               <div className="row">
-                <div className="col-lg-7">
+                <div className="col-lg-12">
                   <h2>Tools to help you reach your workout goals.</h2>
                 </div>
               </div>
               <div className="row">
-                <div className="col-lg-4 text-center">
+                <div className="col-lg-4">
                   <span className="fa fa-bar-chart" aria-hidden="true"></span>
                   <h3 className="h5">Real Metrics on Your Performance</h3>
                   <p>See how your workouts are improving and track your over all progress.</p>
                 </div>
-                <div className="col-lg-4 text-center">
+                <div className="col-lg-4">
                   <span className="fa fa-database" aria-hidden="true"></span>
                   <h3 className="h5">Manage Your Data Better</h3>
                   <p>No more writing down on scraps of paper or managing clunky spreadsheets.</p>
                 </div>
-                <div className="col-lg-4 text-center">
+                <div className="col-lg-4">
                   <span className="fa fa-calculator" aria-hidden="true"></span>
                   <h3 className="h5">Gaines Does the Math for You</h3>
                   <p>Focus on the things that matter and leave the grunt work for us.</p>

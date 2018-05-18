@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom'
 
 // Src > Views
-import { Blog, Dashboard, FourOhFour, Home, Login, Register } from '../views'
+import { Blog, Dashboard, FourOhFour, Home, Login, Register, Styleguide } from '../views'
 
 // Src > Components
 import Navigation from "../components/Navigation"
@@ -36,6 +36,7 @@ export default class Routes extends React.Component {
         <Route path="/dashboard/exercise/:id" exact render={ ()=> <Dashboard.Exercise { ...this.state } /> } />
         <Route path="/login" exact render={ ()=> <Login { ...this.state } /> } />
         <Route path="/register" exact render={ ()=> <Register { ...this.state } /> } />
+        <Route path="/styleguide" exact render={() => <Styleguide { ...this.state } /> } />
         <Route render={ ()=> <FourOhFour { ...this.state } /> } />
       </Switch></main>
       <Footer/>

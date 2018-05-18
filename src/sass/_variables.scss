@@ -62,8 +62,9 @@ $colors: map-merge((
   "gray-dark":  $gray-800
 ), $colors);
 
-$primary:       $blue;
-$secondary:     $gray-600;
+$primary:       #6e3e9a;
+$secondary:     #019ae8;
+$tertiary:      #db4437;
 $success:       $green;
 $info:          $cyan;
 $warning:       $yellow;
@@ -255,7 +256,7 @@ $h5-font-size:                $font-size-base * 1.25;
 $h6-font-size:                $font-size-base;
 
 $headings-margin-bottom:      ($spacer / 2);
-$headings-font-family:        "Roboto Slab", "Georgia", "Times", "Times New Roman", serif;
+$headings-font-family:        "Roboto Condensed", $font-stack-lucida-grande;
 $headings-font-weight:        700;
 $headings-line-height:        1.2;
 $headings-color:              inherit;

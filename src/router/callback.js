@@ -64,6 +64,10 @@ export default ( req, res )=> {
       page.title = 'Register';
       page.classList = [ 'authentication', 'register' ];
       break;
+    case MATCH && MATCH.url && MATCH.url === '/styleguide':
+      page.title = 'Styleguide';
+      page.classList = ['styleguide'];
+      break;
     default:
       page.title = "Page Not Found";
       page.classList = [ 'four-oh-four' ];

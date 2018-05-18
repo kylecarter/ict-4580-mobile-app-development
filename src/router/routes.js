@@ -9,4 +9,5 @@ export default [
     '/dashboard/exercise/:id',
     '/login',
     '/register',
+    '/styleguide'
 ]

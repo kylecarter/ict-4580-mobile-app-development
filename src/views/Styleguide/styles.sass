@@ -1,0 +1,40 @@
+%styleguide--section
+  margin: 42px auto
+
+  &:first-child
+    margin-top: 0
+
+.styleguide
+
+  &--section
+    @extend %styleguide--section
+
+  $sections: swatches headings copy forms toolbars cards popups listicles
+
+  @each $section in $sections
+    &--section__#{ $section }
+      @extend %styleguide--section
+
+.list-swatches
+  @extend .list-inline
+
+  > .swatch
+    min-height: 40px
+    margin: 0 16px 10px
+    border: thin solid $border-color
+    border-radius: $border-radius-sm
+
+  .primary
+    background-color: $primary
+  
+  .secondary
+    background-color: $secondary
+  
+  .tertiary
+    background-color: $tertiary
+
+  .text-color
+    background-color: $text-color
+
+  .white
+    background-color: $white
