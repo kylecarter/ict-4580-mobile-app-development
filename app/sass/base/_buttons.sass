@@ -1,0 +1,24 @@
+.btn
+
+  &.fas
+    font-weight: 900
+
+  &-default
+    color: $text-color
+    background-color: $white
+    border-color: $border-color
+
+    &:hover, &:focus, &:active
+      outline: 0
+      box-shadow: none
+      color: $text-color
+      border-color: $border-color
+      background-color: darken( $white, 2% )
+  
+  &-plain
+    border-color: transparent
+    background-color: transparent
+
+    &:hover, &:focus, &:active
+      border-color: transparent
+      background-color: transparent

@@ -1,0 +1,41 @@
+.list
+
+    &-stats
+        font-size: emify( 14px )
+
+        > li
+            text-align: center
+            padding: 0 2%
+
+            &:first-child
+                padding-left: 0
+            
+            &:last-child
+                padding-right: 0
+
+        .stat
+            font-weight: 400
+            display: block
+
+            &-label
+                font-style: normal
+                display: block
+
+            .toolbar--purple &
+                font-weight: 700
+    
+    &-progress
+
+        > li
+            border-bottom: thin solid $text-color
+            padding: 16px 0 24px
+
+            &:last-child
+                border-bottom-color: transparent
+                padding-bottom: 0
+
+        .h5
+            margin: 0
+        
+        .progress
+            margin-top: 1em

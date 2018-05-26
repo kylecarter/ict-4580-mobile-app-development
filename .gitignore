@@ -232,3 +232,5 @@ backend/static/*
 !backend/static/.staticfilesrc
 build/
 dist/
+gains/www/assets/*
+!gains/www/assets/.assetsrc

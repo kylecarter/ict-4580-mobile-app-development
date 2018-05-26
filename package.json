@@ -7,10 +7,12 @@
     "webpack": "webpack",
     "dev:server": "NODE_ENV=development node ./index.js",
     "dev:collectstatic": "./backend/manage.py collectstatic",
+    "webpack:app": "webpack --config ./webpack.config.app.js --watch",
     "postinstall": "npm run sass && npm run postcss && npm run webpack",
+    "webpack:app:build": "NODE_ENV=production webpack --config ./webpack.config.app.js",
     "postcss": "postcss backend/static/css/stylesheet.css --verbose --env production --replace",
     "sass": "node-sass src/sass/stylesheet.sass -r --precision=8 --include-path=node_modules/ -o backend/static/css/",
-    "dev:backend": "env PYt THONPATH=$PYTHONPATH:$PWD/backend gunicorn backend.wsgi:application --bind $DJANGO_HOST:$DJANGO_PORT",
+    "dev:backend": "env PYTHONPATH=$PYTHONPATH:$PWD/backend gunicorn backend.wsgi:application --bind $DJANGO_HOST:$DJANGO_PORT",
     "dev": "npm run dev:collectstatic && npm run sass && concurrently --kill-others \"npm run watch:sass\" \"npm run dev:server\"",
     "watch:sass": "node-sass src/sass/stylesheet.sass --watch --recursive --precision=8 --include-path=node_modules/ -o backend/static/css/",
     "start": "concurrently --kill-others \"env PYTHONPATH=$PYTHONPATH:$PWD/backend gunicorn backend.wsgi:application --bind $DJANGO_HOST:$DJANGO_PORT\" \"node --optimize_for_size --max_old_space_size=920 --gc_interval=100 --expose-gc ./index.js\""
@@ -91,12 +93,14 @@
     "bourbon": "5.0.0",
     "breakpoint-sass": "2.7.1",
     "cssnano": "3.10.0",
+    "extract-text-webpack-plugin": "4.0.0-beta.0",
     "node-sass": "4.9.0",
     "postcss": "6.0.22",
     "postcss-cli": "5.0.0",
     "uglifyjs-webpack-plugin": "1.2.5",
     "webpack-cli": "2.1.3",
     "webpack-dev-middleware": "3.1.3",
+    "webpack-dev-server": "3.1.4",
     "webpack-hot-middleware": "2.22.2"
   }
 }
