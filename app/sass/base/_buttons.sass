@@ -22,3 +22,25 @@
     &:hover, &:focus, &:active
       border-color: transparent
       background-color: transparent
+  
+  &-create
+    padding: 0
+    +size( 56px )
+    color: $white
+    border-radius: 100%
+    border-color: $red-alt
+    background-color: $red-alt
+    +position( fixed, null 16px 16px null )
+    box-shadow: 0 6px 6px rgba( $black, 0.24 )
+
+    &:before
+      display: block
+      transform: translate( -50%, -50% )
+      +position( absolute, 50% null null 50% )
+
+    &:hover, &:focus, &:active
+      outline: 0
+      color: $white
+      border-color: $red-alt
+      background-color: $red-alt
+      box-shadow: 0 6px 6px rgba( $black, 0.24 )

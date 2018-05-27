@@ -22,13 +22,13 @@ export default class Context extends Component {
     }
 
     render() {
-        const { expose } = this.state;
+        const { expose, url } = this.state;
         return(<nav className={ [ 'context', expose ? 'menu-open' : '' ].join( ' ' ).trim() }>
             <button className="btn btn-plain fas fa-ellipsis-v js-menu" onClick={ this.show } onTouchEnd={ this.show } aria-controls="context-menu"><span className="sr-only">Edit Workout</span></button>
             <ul className="list-unstyled list-menu" id="context-menu">
-                <li><Link to="/workout/4/edit" className="lnk lnk-text">Edit</Link></li>
-                <li><Link to="/workout/4" className="lnk lnk-text">View</Link></li>
-                <li><Link to="/workout/4/delete" className="lnk lnk-text">Remove</Link></li>
+                <li><Link to={ "/edit" + url } className="lnk lnk-text">Edit</Link></li>
+                <li><Link to={ url } className="lnk lnk-text">View</Link></li>
+                <li><Link to={ '/delete' + url } className="lnk lnk-text">Remove</Link></li>
             </ul>
         </nav>);
     }

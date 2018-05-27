@@ -234,4 +234,5 @@ build/
 dist/
 gains/www/assets/*
 !gains/www/assets/.assetsrc
+!gains/www/assets/db.json
 !gains/www/assets/imgs

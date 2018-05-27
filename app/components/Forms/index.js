@@ -1,12 +1,14 @@
 'use strict'
 
-// Components > Lists
+// Application > Components > Forms
+import Edit from './Edit'
 import Exercise from './Exercise'
-import Totals from './Totals'
+import Set from './Set'
 import Workout from './Workout'
 
 export default {
+    Edit,
     Exercise,
-    Totals,
+    Set,
     Workout
 }
