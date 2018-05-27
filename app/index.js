@@ -6,8 +6,12 @@ import ReactDOM from "react-dom"
 
 // Page
 import Main from "./views";
- 
-ReactDOM.render(
-  <Main />, 
-  document.getElementById( 'root' )
-);
+
+
+document.addEventListener('deviceready', ( e )=> {
+  console.log( e.type )
+  ReactDOM.render(
+    <Main />, 
+    document.getElementById( 'root' )
+  );
+}, false);

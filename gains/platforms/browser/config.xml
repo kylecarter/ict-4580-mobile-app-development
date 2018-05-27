@@ -9,4 +9,12 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <access origin="https://fonts.google.com" />
+    <access origin="https://use.fontawesome.com" />
 </widget>

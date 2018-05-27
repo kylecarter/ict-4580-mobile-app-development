@@ -232,6 +232,7 @@ backend/static/*
 !backend/static/.staticfilesrc
 build/
 dist/
+gains/platforms/*
 gains/www/assets/*
 !gains/www/assets/.assetsrc
 !gains/www/assets/db.json

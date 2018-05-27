@@ -41,7 +41,7 @@ export default class Dashboard extends Component {
             <nav id="menu" className="toolbar--purple">
                 <div className="container"><div className="row">
                     <div className="col-2 col-sm-1">
-                        <Link to='/' onClick={ this.toggle } className={ [ 'fas', 'fa-bars', 'lnkSettings', 'js-nav' ].join( ' ' ) } aria-controls="nav-settings">
+                        <Link to='/dashboard' onClick={ this.toggle } className={ [ 'fas', 'fa-bars', 'lnkSettings', 'js-nav' ].join( ' ' ) } aria-controls="nav-settings">
                             <span className="sr-only">Show Settings</span>
                         </Link>
                     </div>
