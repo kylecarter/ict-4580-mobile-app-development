@@ -11,6 +11,13 @@
     <body>
         <div id="root"></div>
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="/assets/components.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('deviceready', function() {
+                var app = document.createElement( 'script' );
+                app.setAttribute( 'src', '/assets/components.js' );
+                app.setAttribute( 'type', 'text/javascript' );
+                document.body.appendChild( app );
+            }, false);
+        </script>
     </body>
 </html>
