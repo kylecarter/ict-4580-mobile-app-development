@@ -73,7 +73,7 @@
     "cors": "2.8.4",
     "css-loader": "0.28.11",
     "express": "4.16.3",
-    "http-proxy": "1.16.2",
+    "http-proxy": "1.18.1",
     "jquery": "3.3.1",
     "postcss-loader": "2.1.4",
     "react": "16.3.2",
